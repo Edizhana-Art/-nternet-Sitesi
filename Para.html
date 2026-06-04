@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ediz Art | Dijital Tasarım</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.3;
+    animation:move 10s infinite alternate;
+}
+
+.circle1{
+    width:400px;
+    height:400px;
+    background:#00ffd5;
+    top:-100px;
+    left:-100px;
+}
+
+.circle2{
+    width:350px;
+    height:350px;
+    background:#005eff;
+    bottom:-100px;
+    right:-100px;
+}
+
+@keyframes move{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(50px);
+    }
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:#00ffd5;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:18px;
+}
+
+nav a:hover{
+    color:#00ffd5;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:90px;
+    margin-bottom:20px;
+}
+
+.hero span{
+    color:#00ffd5;
+}
+
+.hero p{
+    font-size:24px;
+    max-width:850px;
+    line-height:1.8;
+    margin-bottom:40px;
+    opacity:0.9;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn-main{
+    background:#00ffd5;
+    color:black;
+}
+
+.btn-main:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px #00ffd5;
+}
+
+.btn-second{
+    background:transparent;
+    border:2px solid #00ffd5;
+    color:white;
+}
+
+.btn-second:hover{
+    background:#00ffd5;
+    color:black;
+}
+
+/* SECTION TITLE */
+
+.title{
+    text-align:center;
+    font-size:60px;
+    margin-bottom:70px;
+}
+
+.title span{
+    color:#00ffd5;
+}
+
+/* GALERİ */
+
+.gallery{
+    padding:100px 8%;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    background:#111;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    transition:0.5s;
+    display:block;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:30px;
+    background:linear-gradient(transparent,rgba(0,0,0,0.95));
+}
+
+.overlay h3{
+    font-size:30px;
+}
+
+/* SERVICES */
+
+.services{
+    padding:100px 8%;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service{
+    background:rgba(255,255,255,0.05);
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.service:hover{
+    transform:translateY(-10px);
+}
+
+.service h3{
+    font-size:32px;
+    margin:20px 0;
+    color:#00ffd5;
+}
+
+.service p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* ABOUT */
+
+.about{
+    padding:100px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:35px;
+}
+
+.about-text h2{
+    font-size:60px;
+    margin-bottom:30px;
+}
+
+.about-text span{
+    color:#00ffd5;
+}
+
+.about-text p{
+    font-size:22px;
+    line-height:2;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 8%;
+    text-align:center;
+}
+
+.contact p{
+    font-size:24px;
+    margin-bottom:40px;
+}
+
+.contact a{
+    display:inline-block;
+    padding:20px 50px;
+    background:#00ffd5;
+    color:black;
+    text-decoration:none;
+    border-radius:60px;
+    font-size:24px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.contact a:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #00ffd5;
+}
+
+/* EXTRA */
+
+.extra-box{
+    margin-top:40px;
+    background:rgba(255,255,255,0.05);
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.extra-box h2{
+    font-size:45px;
+    color:#00ffd5;
+    margin-bottom:20px;
+}
+
+.extra-box p{
+    font-size:22px;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.1);
+    background:#090909;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.title,
+.about-text h2{
+    font-size:40px;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+nav{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg">
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+</div>
+
+<header>
+
+<div class="logo">🎨 Ediz Art</div>
+
+<nav>
+<a href="#anasayfa">Ana Sayfa</a>
+<a href="#galeri">Galeri</a>
+<a href="#hizmet">Hizmetler</a>
+<a href="#hakkimda">Hakkımda</a>
+<a href="#iletisim">İletişim</a>
+</nav>
+
+</header>
+
+<section class="hero" id="anasayfa">
+
+<h1>Merhaba Ben <span>Edizhan</span></h1>
+
+<p>
+12 yaşında dijital çizim ve tasarım yapan bir çocuğum.
+Logo, banner, profil fotoğrafı ve sosyal medya tasarımları hazırlıyorum.
+</p>
+
+<div class="hero-buttons">
+
+<button class="btn btn-main"
+onclick="document.getElementById('galeri').scrollIntoView()">
+Galeriyi Gör
+</button>
+
+<button class="btn btn-second"
+onclick="document.getElementById('iletisim').scrollIntoView()">
+İletişim
+</button>
+
+</div>
+
+</section>
+
+<!-- GALERİ -->
+
+<section class="gallery" id="galeri">
+
+<h2 class="title">Çizim <span>Galerisi</span></h2>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+
+<h3>🎮 Discord Logo</h3>
+
+<p style="
+margin-top:10px;
+font-size:22px;
+color:#00ffd5;
+font-weight:bold;
+">
+100 TL
+</p>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+
+<h3>🔥 Profil Fotoğrafı</h3>
+
+<p style="
+margin-top:10px;
+font-size:22px;
+color:#00ffd5;
+font-weight:bold;
+">
+150 TL
+</p>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay">
+
+<h3>🖥️ YouTube Banner</h3>
+
+<p style="
+margin-top:10px;
+font-size:22px;
+color:#00ffd5;
+font-weight:bold;
+">
+200 TL
+</p>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="hizmet">
+
+<h2 class="title">Yaptığım <span>Şeyler</span></h2>
+
+<div class="service-grid">
+
+<div class="service">
+<h3>🎨 Logo</h3>
+<p>
+Discord, YouTube ve oyun toplulukları için modern logolar tasarlıyorum.
+</p>
+</div>
+
+<div class="service">
+<h3>🖼️ Banner</h3>
+<p>
+YouTube banner ve sosyal medya kapak görselleri hazırlıyorum.
+</p>
+</div>
+
+<div class="service">
+<h3>🔥 Profil Fotoğrafı</h3>
+<p>
+Havalı profil fotoğrafları ve özel avatarlar yapıyorum.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EXTRA -->
+
+<section class="services">
+
+<div class="extra-box">
+
+<h2>⚡ Hızlı Teslimat</h2>
+
+<p>
+Siparişler genellikle 1-2 gün içinde hazırlanır.
+Modern, kaliteli ve dikkat çekici tasarımlar yapıyorum.
+</p>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="hakkimda">
+
+<img src="https://picsum.photos/900/900?random=20">
+
+<div class="about-text">
+
+<h2>Hakkımda <span>👋</span></h2>
+
+<p>
+Ben 12 yaşında bir çocuğum.<br><br>
+
+Adım Edizhan 🎨<br><br>
+
+Dijital çizim, logo tasarım ve sosyal medya görselleri yapıyorum.
+Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum.
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="iletisim">
+
+<h2 class="title">Bana <span>Ulaş</span></h2>
+
+<p>
+WhatsApp üzerinden bana ulaşabilirsin.
+</p>
+
+<a href="https://wa.me/905544922342" target="_blank">
+WhatsApp Aç
+</a>
+
+</section>
+
+<footer>
+© 2026 Ediz Art — Tüm Hakları Saklıdır
+</footer>
+
+</body>
+</html>
